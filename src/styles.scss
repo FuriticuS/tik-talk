@@ -5,6 +5,7 @@
   --dark-color: #000000;
   --light-color: #ffffff;
   --primary-color: #AE7AFF;
+  --light-primary-color: #C0A3FF;
 }
 
 *{
@@ -27,6 +28,11 @@ body{
   color: var(--dark-color);
   cursor: pointer;
   border: none;
+
+  &:hover {
+    background: var(--light-primary-color);
+    transition: all .3s ease;
+  }
 }
 
 .h6 {
