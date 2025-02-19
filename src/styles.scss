@@ -17,6 +17,7 @@ body{
 }
 
 .btn {
+  width: min-content;
   padding: 10px 20px;
   border-radius: 2px;
   background: var(--primary-color);
