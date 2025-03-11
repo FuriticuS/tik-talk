@@ -2,6 +2,8 @@ import {Component, inject} from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {AuthService} from "../../auth/auth.service";
 import {LoginPageAuthInterface} from "./interface/login-page-auth-interface";
+import {Router} from "@angular/router";
+import {take, tap} from "rxjs";
 
 @Component({
   selector: 'app-login-page',
@@ -14,6 +16,7 @@ import {LoginPageAuthInterface} from "./interface/login-page-auth-interface";
 })
 export class LoginPageComponent {
   authService = inject(AuthService)
+  router = inject(Router);
 
   form = new FormGroup({
     username: new FormControl("", Validators.required),
@@ -34,9 +37,13 @@ export class LoginPageComponent {
         password
       };
       this.authService.login(loginData)
-        .subscribe(res => {
-          console.log(res)
-      });
+        .pipe(
+          tap(res => {
+            this.router.navigate(['/']);
+          }),
+          take(1)
+        )
+        .subscribe();
     }
   }
 }
