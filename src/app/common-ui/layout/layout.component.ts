@@ -2,6 +2,7 @@ import {Component, inject, OnInit} from '@angular/core';
 import {RouterOutlet} from "@angular/router";
 import {SidebarComponent} from "../sidebar/sidebar.component";
 import {ProfileService} from "../../data/services/profile.service";
+import {tap} from "rxjs";
 
 @Component({
   selector: 'app-layout',
@@ -17,8 +18,10 @@ export class LayoutComponent implements OnInit {
   profileService = inject(ProfileService);
 
   ngOnInit() {
-    this.profileService.getMe().subscribe(val=> {
-      console.log(val)
-    })
+    this.profileService.getMe().pipe(
+      tap(val => {
+        console.log(val)
+      })
+    ).subscribe();
   }
 }

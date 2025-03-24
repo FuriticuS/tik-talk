@@ -5,3 +5,27 @@
   align-items: center;
   margin: 0 5%;
 }
+
+.password-input{
+  position: relative;
+  width: fit-content;
+
+  &-btn {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--gray-color);
+    cursor: pointer;
+
+    &.active {
+      color: var(--primary-color);
+    }
+  }
+}
+
+

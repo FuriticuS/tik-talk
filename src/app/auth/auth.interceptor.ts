@@ -14,14 +14,14 @@ export const authTokenInterceptor: HttpInterceptorFn = (req, next) => {
   }
 
   if(isRefreshing){
-    refreshAndProceed(authService, req, next)
+    return refreshAndProceed(authService, req, next)
   }
 
   return next(addToken(req, token))
     .pipe(
       catchError(error => {
         if(error.status === 403){
-          refreshAndProceed(authService, req, next)
+          return refreshAndProceed(authService, req, next)
         }
 
         return throwError(error)
