@@ -6,10 +6,14 @@ import {ProfileInterface} from "../interfaces/profile.interface";
   providedIn: 'root'
 })
 export class ProfileService {
-  baseApiUrl = 'https://icherniakov.ru/yt-course/';
   http: HttpClient = inject(HttpClient);
+  baseApiUrl = 'https://icherniakov.ru/yt-course/';
 
   getTestAccounts() {
     return this.http.get<ProfileInterface[]>(`${this.baseApiUrl}account/test_accounts`);
+  }
+
+  getMe(){
+    return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/me`);
   }
 }
