@@ -1,24 +1,46 @@
-<img src="assets/svg/logo-small.svg" alt="Logo tik-talk" class="main-menu-logo">
+<header>
+  <img src="assets/svg/logo-small.svg" alt="Logo tik-talk" class="main-menu-logo">
 
-<nav>
-  <ul class="main-menu-list">
-    <li>
-      <button class="main-menu-list-btn">
-        <svg class="main-menu-list-btn-icon" icon="home"></svg>
-        <span>Моя страница</span>
-      </button>
-    </li>
-    <li>
-      <button class="main-menu-list-btn">
-        <svg class="main-menu-list-btn-icon" icon="chats"></svg>
-        <span>Чаты</span>
-      </button>
-    </li>
-    <li>
-      <button class="main-menu-list-btn">
-        <svg class="main-menu-list-btn-icon" icon="search"></svg>
-        <span>Поиск</span>
-      </button>
-    </li>
-  </ul>
-</nav>
+  <nav>
+    <ul class="main-menu-list">
+      <li *ngFor="let menuItem of menuItems">
+        <a class="main-menu-list-btn" [routerLink]="menuItem.link">
+          <svg class="main-menu-list-btn-icon" [icon]="menuItem.icon"></svg>
+          <span>{{ menuItem.label }}</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <p class="medium-text mb-20">Подписчики</p>
+
+  @for (profile of subscribers$ | async; track profile.id) {
+    <app-subscriber-card [profile]="profile"></app-subscriber-card>
+  }
+
+  <div class="to-subscribers">
+    <a
+      class="to-subscribers-link medium-text"
+      [routerLink]="['/subscribers']"
+    >Все подписчики</a>
+    <svg
+      class="to-subscribers-icon"
+      icon="arrow"></svg>
+  </div>
+</header>
+
+<footer>
+  @if (me(); as me) {
+    @if (me.avatarUrl){
+      <img [src]="me.avatarUrl | imgUrl" alt="avatar-logo">
+    } @else {
+      <img src="assets/imgs/avatar-placeholder.png" alt="avatar-logo">
+    }
+
+    <p class="medium-text username-text">{{me.username}}</p>
+
+    <a [routerLink]="['settings']" class="username-settings">
+      <svg icon="settings"></svg>
+    </a>
+  }
+</footer>

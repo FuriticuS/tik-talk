@@ -14,14 +14,4 @@ import {tap} from "rxjs";
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.scss'
 })
-export class LayoutComponent implements OnInit {
-  profileService = inject(ProfileService);
-
-  ngOnInit() {
-    this.profileService.getMe().pipe(
-      tap(val => {
-        console.log(val)
-      })
-    ).subscribe();
-  }
-}
+export class LayoutComponent{}

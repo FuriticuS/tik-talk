@@ -19,8 +19,12 @@ body {
   background: url(/assets/imgs/background.jpg) no-repeat center center;
   background-size: cover;
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   color: var(--light-color);
+}
+
+.workspace {
+  padding: 24px;
 }
 
 .btn {
@@ -74,6 +78,13 @@ body {
   font-weight: 400;
 }
 
+.medium-text {
+  font-family: 'JetBrains Mono', sans-serif;
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 500;
+}
+
 .tt-control-label {
   display: block;
   font-size: 12px;
@@ -97,6 +108,10 @@ body {
 
 .mb-16{
   margin-bottom: 16px;
+}
+
+.mb-20{
+  margin-bottom: 20px;
 }
 
 .mb-32{
