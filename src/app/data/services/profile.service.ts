@@ -24,6 +24,10 @@ export class ProfileService {
       );
   }
 
+  getAccount(id: string): Observable<ProfileInterface> {
+    return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/${id}`);
+  }
+
   getSubscribersShortList(): Observable<ProfileInterface[]> {
     return this.http.get<Pageble<ProfileInterface>>(`${this.baseApiUrl}account/subscribers/`)
       .pipe(
