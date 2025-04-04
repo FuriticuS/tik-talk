@@ -18,3 +18,9 @@ header {
   margin-left: 4px;
   color: var(--dark-color);
 }
+
+main {
+  display: grid;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 350px;
+}

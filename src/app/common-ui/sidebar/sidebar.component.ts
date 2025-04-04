@@ -24,7 +24,7 @@ import {ImgUrlPipe} from "../../helpers/pipes/img-url.pipe";
 })
 export class SidebarComponent {
   profileService: ProfileService = inject(ProfileService);
-  subscribers$ = this.profileService.getSubscribersShortList();
+  subscribers$ = this.profileService.getSubscribersShortList(4);
   me = this.profileService.me;
 
   menuItems = [

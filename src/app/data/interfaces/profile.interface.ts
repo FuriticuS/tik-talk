@@ -6,7 +6,7 @@ export interface ProfileInterface {
   firstName: string,
   lastName: string,
   isActive: boolean,
-  stack: string,
+  stack: string | null,
   city: string,
-  description: string
+  description: string | null
 }

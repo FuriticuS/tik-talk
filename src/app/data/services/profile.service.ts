@@ -28,11 +28,11 @@ export class ProfileService {
     return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/${id}`);
   }
 
-  getSubscribersShortList(): Observable<ProfileInterface[]> {
+  getSubscribersShortList(quantity: number): Observable<ProfileInterface[]> {
     return this.http.get<Pageble<ProfileInterface>>(`${this.baseApiUrl}account/subscribers/`)
       .pipe(
         map((res: Pageble<ProfileInterface>) => {
-          return res.items.slice(1, 4);
+          return res.items.slice(1, quantity);
         })
       );
   }

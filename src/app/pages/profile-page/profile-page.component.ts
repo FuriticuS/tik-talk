@@ -2,10 +2,11 @@ import {Component, inject} from '@angular/core';
 import {ProfileHeaderComponent} from "../../common-ui/profile-header/profile-header.component";
 import {ProfileService} from "../../data/services/profile.service";
 import {ActivatedRoute, RouterLink} from "@angular/router";
-import {switchMap, take} from "rxjs";
+import {switchMap} from "rxjs";
 import {toObservable} from "@angular/core/rxjs-interop";
 import {AsyncPipe} from "@angular/common";
 import {SvgIconComponent} from "../../common-ui/svg-icon/svg-icon.component";
+import {MainSubscribersComponent} from "../../common-ui/main-subscribers/main-subscribers.component";
 
 @Component({
   selector: 'app-profile-page',
@@ -14,7 +15,8 @@ import {SvgIconComponent} from "../../common-ui/svg-icon/svg-icon.component";
     ProfileHeaderComponent,
     AsyncPipe,
     RouterLink,
-    SvgIconComponent
+    SvgIconComponent,
+    MainSubscribersComponent
   ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss'
