@@ -7,6 +7,7 @@ import {toObservable} from "@angular/core/rxjs-interop";
 import {AsyncPipe} from "@angular/common";
 import {SvgIconComponent} from "../../common-ui/svg-icon/svg-icon.component";
 import {MainSubscribersComponent} from "../../common-ui/main-subscribers/main-subscribers.component";
+import {PostFeedComponent} from "./post-feed/post-feed.component";
 
 @Component({
   selector: 'app-profile-page',
@@ -16,7 +17,8 @@ import {MainSubscribersComponent} from "../../common-ui/main-subscribers/main-su
     AsyncPipe,
     RouterLink,
     SvgIconComponent,
-    MainSubscribersComponent
+    MainSubscribersComponent,
+    PostFeedComponent
   ],
   templateUrl: './profile-page.component.html',
   styleUrl: './profile-page.component.scss'

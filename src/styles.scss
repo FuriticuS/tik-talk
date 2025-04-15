@@ -120,6 +120,41 @@ body {
   border-radius: 4px;
 }
 
+.tt-form-label{
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  &-text {
+    font-family: 'JetBrains Mono', sans-serif;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 500;
+  }
+}
+
+.tt-form-input{
+  height: 33px;
+  font-family: 'JetBrains Mono', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+  color: var(--light-color);
+  border: none;
+  border-bottom: 1px solid var(--light-color);
+  background: none;
+  resize: none;
+
+  &:focus,
+  &:active {
+    outline: none;
+  }
+}
+
+.tt-textarea {
+  height: 84px;
+  resize: none;
+}
+
 .mb-16{
   margin-bottom: 16px;
 }
