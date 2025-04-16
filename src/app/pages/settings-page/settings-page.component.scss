@@ -8,10 +8,17 @@
 .profile-form{
   display: grid;
   grid-gap: 20px;
-  padding: 32px;
-  border: 1px solid var(--light-color);
-  border-radius: 4px;
-  background: var(--dark-color);
+
+  &-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: calc(100dvh - (24px * 4));
+    padding: 32px;
+    border: 1px solid var(--light-color);
+    border-radius: 4px;
+    background: var(--dark-color);
+  }
 }
 
 .two-columns{

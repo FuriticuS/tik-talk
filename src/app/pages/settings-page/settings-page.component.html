@@ -1,47 +1,58 @@
 <app-profile-page></app-profile-page>
 
 <form
-  class="profile-form"
+  class="profile-form-wrapper"
   [formGroup]="form"
 >
-  <div class="two-columns">
+  <div class="profile-form">
+    <div class="two-columns">
+      <label class="tt-form-label">
+        <span class="tt-form-label-text">Имя</span>
+        <input
+          type="text"
+          class="tt-form-input"
+          formControlName="firstName">
+      </label>
+      <label class="tt-form-label">
+        <span class="tt-form-label-text">Фамилия</span>
+        <input
+          type="text"
+          class="tt-form-input"
+          formControlName="lastName">
+      </label>
+    </div>
+
     <label class="tt-form-label">
-      <span class="tt-form-label-text">Имя</span>
+      <span class="tt-form-label-text">Telegram Username</span>
       <input
         type="text"
         class="tt-form-input"
-        formControlName="firstName">
+        formControlName="username">
     </label>
+
     <label class="tt-form-label">
-      <span class="tt-form-label-text">Фамилия</span>
-      <input
-        type="text"
+      <span class="tt-form-label-text">О себе</span>
+      <textarea
+        class="tt-form-input tt-textarea"
+        formControlName="description">
+    </textarea>
+    </label>
+
+    <label class="tt-form-label">
+      <span class="tt-form-label-text">Навыки (стэк)</span>
+      <textarea
         class="tt-form-input"
-        formControlName="lastName">
+        formControlName="stack">
+    </textarea>
     </label>
   </div>
 
-  <label class="tt-form-label">
-    <span class="tt-form-label-text">Telegram Username</span>
-    <input
-      type="text"
-      class="tt-form-input"
-      formControlName="username">
-  </label>
-
-  <label class="tt-form-label">
-    <span class="tt-form-label-text">О себе</span>
-    <textarea
-      class="tt-form-input tt-textarea"
-      formControlName="description">
-    </textarea>
-  </label>
-
-  <label class="tt-form-label">
-    <span class="tt-form-label-text">Навыки (стэк)</span>
-    <textarea
-      class="tt-form-input"
-      formControlName="stack">
-    </textarea>
-  </label>
+  <div>
+    <div>
+      <div
+        class="btn"
+        (click)="onSave()"
+      >Сохранить</div>
+    </div>
+  </div>
 </form>

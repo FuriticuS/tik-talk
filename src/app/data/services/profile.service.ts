@@ -13,10 +13,12 @@ export class ProfileService {
 
   me = signal<ProfileInterface | null>(null);
 
+  // получить тестовые аккаунты
   getTestAccounts(): Observable<ProfileInterface[]> {
     return this.http.get<ProfileInterface[]>(`${this.baseApiUrl}account/test_accounts`);
   }
 
+  // получить свой аккаунт
   getMe(): Observable<ProfileInterface> {
     return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/me`)
       .pipe(
@@ -24,10 +26,12 @@ export class ProfileService {
       );
   }
 
+  // получить аккаунт пользователя
   getAccount(id: string): Observable<ProfileInterface> {
     return this.http.get<ProfileInterface>(`${this.baseApiUrl}account/${id}`);
   }
 
+  // получить список подписчиков
   getSubscribersShortList(quantity: number): Observable<ProfileInterface[]> {
     return this.http.get<Pageble<ProfileInterface>>(`${this.baseApiUrl}account/subscribers/`)
       .pipe(
@@ -35,5 +39,10 @@ export class ProfileService {
           return res.items.slice(1, quantity);
         })
       );
+  }
+
+  // сохранить изменения в своем аккаунте
+  pathProfile(profile: Partial<ProfileInterface>): Observable<ProfileInterface> {
+    return this.http.patch<ProfileInterface>(`${this.baseApiUrl}account/me`, profile);
   }
 }
