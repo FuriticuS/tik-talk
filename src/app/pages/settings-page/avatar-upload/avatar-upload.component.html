@@ -4,9 +4,11 @@
   class="avatar">
 
 <div
+  dndDirectives
   class="dropzone"
-  tabindex="0"
-  (keyup.enter)="fileDrop.click()">
+  (keyup.enter)="fileDrop.click()"
+  (fileDropped)="onFileDropped($event)"
+>
 
   <div class="dropzone-content">
     <svg icon="upload"></svg>

@@ -32,6 +32,10 @@
     }
   }
 
+  &.fileover {
+    border: 1px dashed var(--primary-color);
+  }
+
   &-avatar-input{
     display: none;
   }

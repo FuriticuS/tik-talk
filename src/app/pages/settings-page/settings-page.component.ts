@@ -1,4 +1,4 @@
-import {Component, effect, inject} from '@angular/core';
+import {Component, effect, inject, ViewChild} from '@angular/core';
 import {ProfilePageComponent} from "../profile-page/profile-page.component";
 import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {ProfileService} from "../../data/services/profile.service";
@@ -17,11 +17,12 @@ import {AvatarUploadComponent} from "./avatar-upload/avatar-upload.component";
   styleUrl: './settings-page.component.scss'
 })
 export class SettingsPageComponent {
-
   fb = inject(FormBuilder);
   profileService = inject(ProfileService)
 
-  public form= this.fb.group({
+  @ViewChild(AvatarUploadComponent) avatarUploader!: AvatarUploadComponent;
+
+  form= this.fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
     username: [{value:'', disable: true}, Validators.required],
@@ -45,6 +46,10 @@ export class SettingsPageComponent {
     this.form.updateValueAndValidity();
 
     if (this.form.invalid) return
+
+    if(this.avatarUploader.avatar) {
+      firstValueFrom(this.profileService.uploadAvatar(this.avatarUploader.avatar))
+    }
 
     // @ts-ignore
     firstValueFrom(this.profileService.pathProfile({

@@ -45,4 +45,12 @@ export class ProfileService {
   pathProfile(profile: Partial<ProfileInterface>): Observable<ProfileInterface> {
     return this.http.patch<ProfileInterface>(`${this.baseApiUrl}account/me`, profile);
   }
+
+  // загрузить аватарку
+  uploadAvatar(file: File): Observable<ProfileInterface> {
+    const fd = new FormData();
+    fd.append('image', file);
+
+    return this.http.post<ProfileInterface>(`${this.baseApiUrl}account/upload_image`, fd)
+  }
 }
