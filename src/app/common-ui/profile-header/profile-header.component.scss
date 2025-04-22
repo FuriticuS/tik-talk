@@ -11,5 +11,8 @@ img{
 }
 
 .username-and-name {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: left;
 }

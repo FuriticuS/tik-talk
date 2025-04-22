@@ -1,6 +1,6 @@
 @if (profile(); as profile) {
   @if (profile.avatarUrl) {
-    <img [src]="profile.avatarUrl" alt="Avatar">
+    <img [src]="'https://icherniakov.ru/yt-course/' + profile.avatarUrl" alt="Avatar">
   } @else {
     <img src="assets/imgs/avatar-placeholder.png" alt="Avatar">
   }
