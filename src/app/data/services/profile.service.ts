@@ -12,6 +12,7 @@ export class ProfileService {
   baseApiUrl = 'https://icherniakov.ru/yt-course/';
 
   me = signal<ProfileInterface | null>(null);
+  filteredProfiles = signal<ProfileInterface[]>([]);
 
   // получить тестовые аккаунты
   getTestAccounts(): Observable<ProfileInterface[]> {
@@ -52,5 +53,17 @@ export class ProfileService {
     fd.append('image', file);
 
     return this.http.post<ProfileInterface>(`${this.baseApiUrl}account/upload_image`, fd)
+  }
+
+  // фильтр по инпуту на странице поиска
+  filterProfiles(params: Record<string, any>): Observable<Pageble<ProfileInterface>> {
+    return this.http.get<Pageble<ProfileInterface>>(
+      `${this.baseApiUrl}account/accounts`,
+      {
+        params
+      }
+    ).pipe(
+      tap(res => this.filteredProfiles.set(res.items)),
+    )
   }
 }

@@ -4,7 +4,11 @@
   <nav>
     <ul class="main-menu-list">
       <li *ngFor="let menuItem of menuItems">
-        <a class="main-menu-list-btn" [routerLink]="[menuItem.link]">
+        <a
+          class="main-menu-list-btn"
+          [routerLink]="[menuItem.link]"
+          routerLinkActive="active"
+        >
           <svg class="main-menu-list-btn-icon" [icon]="menuItem.icon"></svg>
           <span>{{ menuItem.label }}</span>
         </a>
