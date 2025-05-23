@@ -1,0 +1,33 @@
+header {
+  display: grid;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 350px;
+  padding: 24px;
+
+  .btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: fit-content;
+  }
+}
+
+.header-btn {
+  display: flex;
+  align-items: center;
+}
+
+.to-settings-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  color: var(--dark-color);
+}
+
+main {
+  display: grid;
+  grid-gap: 64px;
+  grid-template-columns: 1fr 350px;
+  padding: 24px;
+}
