@@ -30,7 +30,6 @@ body {
 .btn {
   width: min-content;
   padding: 10px 20px;
-  border-radius: 4px;
   background: var(--primary-color);
   line-height: 24px;
   font-size: 14px;
@@ -38,6 +37,25 @@ body {
   color: var(--dark-color);
   cursor: pointer;
   border: 1px solid var(--dark-color);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--light-primary-color);
+    transition: all .3s ease;
+  }
+}
+
+.btn-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--primary-color);
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 4px;
+  cursor: pointer;
 
   &:hover {
     background: var(--light-primary-color);
@@ -180,4 +198,9 @@ body {
   font-weight: 700;
   border-radius: 4px;
   border: 1px solid var(--light-color);
+}
+
+.svg16 {
+  width: 16px;
+  height: 16px;
 }
