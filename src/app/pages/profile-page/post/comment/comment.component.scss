@@ -1,0 +1,24 @@
+:host{
+  display: grid;
+  grid-template-columns: 32px 1fr;
+  grid-gap: 16px;
+  margin: 24px 0;
+  padding-bottom: 12px;
+  border-bottom: 1px dashed var(--gray-color);
+}
+
+.comment-body {
+  display: grid;
+  grid-gap: 8px;
+
+  &-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+
+    &-time{
+      color: var(--gray-color);
+    }
+  }
+}

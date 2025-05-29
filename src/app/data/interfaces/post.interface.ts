@@ -4,7 +4,6 @@ export interface PostCreateDto {
   title: string,
   content: string,
   authorId: number,
-  communityId: number
 }
 
 export interface Post {
@@ -17,10 +16,10 @@ export interface Post {
   createdAt: string,
   updatedAt: string,
   likes: number,
-  comments: Comment
+  comments: PostComment[]
 }
 
-export interface Comment {
+export interface PostComment {
   id: number,
   text: string,
   author: {
@@ -32,5 +31,12 @@ export interface Comment {
   postId: number,
   commentId: number,
   createdAt: string,
-  updatedAt: string
+  updatedAt: string,
+  length: number
+}
+
+export interface CommentCreateDto {
+  text: string,
+  authorId: number,
+  postId: number
 }
