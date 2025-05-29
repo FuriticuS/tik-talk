@@ -1,0 +1,24 @@
+@if (profile$ | async; as profile) {
+  <header>
+    <app-profile-header
+      [profile]="profile"
+    ></app-profile-header>
+
+    <div class="header-btn">
+      <a
+        class="btn"
+        [routerLink]="['/settings']">
+        Редактировать
+        <svg icon="settings" class="to-settings-icon"></svg>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <app-post-feed></app-post-feed>
+
+    <app-main-subscribers
+      [profile]="profile">
+    </app-main-subscribers>
+  </main>
+}

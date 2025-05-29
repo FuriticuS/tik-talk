@@ -1,0 +1,99 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--dark-color);
+  height: 100vh;
+  padding: 20px 12px;
+
+  .main-menu-logo{
+    margin-left: 16px;
+    margin-bottom: 20px;
+  }
+}
+
+.main-menu-list {
+  display: grid;
+  grid-gap: 8px;
+
+  &-btn{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    padding: 16px 12px;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: var(--light-color);
+    cursor: pointer;
+    border: none;
+    border-radius: 2px;
+    background: none;
+
+    &.active,
+    &:hover,
+    &:focus-visible{
+      background: var(--dark-hover-color);
+      color: var(--primary-color);
+      transition: all .3s ease;
+    }
+
+    span {
+      margin-left: 12px;
+    }
+
+    &-icon{
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
+
+.to-subscribers {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+
+  &-link {
+    color: var(--primary-color);
+  }
+
+  &-icon {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+footer {
+  display: grid;
+  grid-template-columns: 32px 1fr 16px;
+  grid-gap: 12px;
+  align-items: center;
+  padding: 4px 16px;
+  width: calc(100% - 20px);
+  background: var(--dark-hover-color);
+  border-radius: 2px;
+
+  img{
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+  }
+
+  .username-text {
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  .username-settings {
+    height: 13px;
+    width: 13px;
+    color: var(--primary-color);
+    svg{
+      height: 13px;
+      width: 13px;
+    }
+  }
+}

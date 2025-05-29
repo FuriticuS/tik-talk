@@ -1,0 +1,46 @@
+@if(post(); as post){
+  <app-avatar-circle
+    class="size32"
+    [avatarUrl]="post.author.avatarUrl"
+  ></app-avatar-circle>
+
+  <main class="post-body">
+    <div class="post-body-header">
+      <strong class="post-body-header-author">{{post.author.firstName}} {{post.author.lastName}}
+        <span class="post-body-header-created">{{post.createdAt | date: "HH:mm dd.MM.YY" }}</span>
+      </strong>
+
+      <p class="post-body-text">{{post.content}}</p>
+    </div>
+
+    <div class="post-body-counters">
+      <span class="post-body-counters-amount">
+        <svg icon="comment" class="svg16"></svg>
+        <span class="post-body-counters-amount-length">{{comment().length}}</span>
+      </span>
+    </div>
+
+    <div class="post-body-comments-wrapper">
+      @for (comment of (showAllComments() ? comment() : comment().slice(0, 2)); track comment.id){
+        <app-comment
+          [comment]="comment"
+        ></app-comment>
+      }
+    </div>
+
+    <div *ngIf="comment().length > 2">
+      <button
+        class="btn post-body-btn-all"
+        (click)="showAllComment()"
+      >{{showAllComments() ? 'Скрыть все...' : 'Показать все...'}}</button>
+    </div>
+
+    <div>
+      <app-post-input
+        (createComment)="onCreateComment()"
+        [postId]="post.id"
+        [isCommentInput]="true"
+      ></app-post-input>
+    </div>
+  </main>
+}
